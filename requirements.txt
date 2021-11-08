@@ -1,0 +1,8 @@
+https://download.pytorch.org/whl/cu101/torch-1.6.0%2Bcu101-cp37-cp37m-linux_x86_64.whl
+pororo
+transformers
+datasets
+tweepy==3.7.0
+konlpy
+python-mecab-ko
+kss
