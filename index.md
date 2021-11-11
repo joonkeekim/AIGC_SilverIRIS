@@ -1,37 +1,23 @@
-## Welcome to GitHub Pages
+## 인공지능 그랜드 챌린지 5차
 
-You can use the [editor on GitHub](https://github.com/joonkeekim/AIGC_SilverIRIS/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Silver IRIS
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- 인공지능을 활용하여 텍스트로 구성된 서술형 수학문제의 풀이과정과 해답을 제시하라
+- Algebraic 모델과 Question Answering 모델로 구성
+- binary classification을 통해 문제를 구분하여 각 모델로 전달
 
-### Markdown
+### Algebraic model
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- 중국어 수학 문제 데이터셋 [Math23k](https://ai.tencent.com/ailab/nlp/dialogue/#Dataset), [Ape210k](https://github.com/Chenny0808/ape210k) 를 기계번역을 통하여 데이터셋 구축
+- 2가지 모델을 비교
+    - [https://github.com/ShichaoSun/math_seq2tree](https://github.com/ShichaoSun/math_seq2tree) (gts)에 [kykim electra-kor-base](https://huggingface.co/kykim/electra-kor-base) 를 임베딩으로 사용한 모델
+    - [Solving Math Word Problems with Multi-Encoders and Multi-Decoders](https://github.com/YibinShen/MultiMath) (multi)에 [KLUE roberta-large](https://huggingface.co/klue/roberta-large) 를 임베딩으로 사용한 모델.
+    - MLM은 같은 데이터셋에 masked language modeling을 통해 pretraining한 모델을 의미
+ 
+![Image](./images/total.png)
 
-```markdown
-Syntax highlighted code block
+- 추가적인 실험으로 [Bert](https://aclanthology.org/N19-1423/)에서 사용한 NSP(Next Sentence Prediction)을 적용한 roberta model 비교 예정
+![Image](./images/plot_pretrain.png)
+### Question Answering model
+- Question Answering으로 풀 수 있는 형식의 데이터셋 [DROP](https://allennlp.org/drop), [KorQUAD](https://korquad.github.io/) 을 기계번역을 통하여 데이터셋 구축 
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/joonkeekim/AIGC_SilverIRIS/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
