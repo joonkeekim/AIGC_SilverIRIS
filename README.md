@@ -29,7 +29,7 @@
 |epoch 2|78.092|80.300|
 |epoch 3|84.100|86.249| 
 
-### 
+### Scripts
 - main.py : 인공지능 그랜드 챌린지 제출 형식의 파일
 - mwp_train.py : Algebraic 모델 학습 파일
 - qa_train.py : Question Answering 모델 학습 파일
