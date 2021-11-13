@@ -10,7 +10,7 @@
 
 - 중국어 수학 문제 데이터셋 [Math23k](https://ai.tencent.com/ailab/nlp/dialogue/#Dataset), [Ape210k](https://github.com/Chenny0808/ape210k) 를 기계번역을 통하여 데이터셋 구축
 - 2가지 모델을 비교
-    - [https://github.com/ShichaoSun/math_seq2tree](https://github.com/ShichaoSun/math_seq2tree) (gts)에 [kykim electra-kor-base](https://huggingface.co/kykim/electra-kor-base) 를 임베딩으로 사용한 모델
+    - [A Goal-Driven Tree-Structured Neural Model for Math Word Problems](https://github.com/ShichaoSun/math_seq2tree) (gts)에 [kykim electra-kor-base](https://huggingface.co/kykim/electra-kor-base) 를 임베딩으로 사용한 모델
     - [Solving Math Word Problems with Multi-Encoders and Multi-Decoders](https://github.com/YibinShen/MultiMath) (multi)에 [KLUE roberta-large](https://huggingface.co/klue/roberta-large) 를 임베딩으로 사용한 모델.
     - MLM은 같은 데이터셋에 masked language modeling을 통해 pretraining한 모델을 의미
  
@@ -18,6 +18,14 @@
 
 - 추가적인 실험으로 [Bert](https://aclanthology.org/N19-1423/)에서 사용한 NSP(Next Sentence Prediction)을 적용한 roberta model 비교 예정
 ![Image](./images/plot_pretrain.png)
+
+
 ### Question Answering model
-- Question Answering으로 풀 수 있는 형식의 데이터셋 [DROP](https://allennlp.org/drop), [KorQUAD](https://korquad.github.io/) 을 기계번역을 통하여 데이터셋 구축 
+- Question Answering으로 풀 수 있는 형식의 데이터셋 [DROP](https://allennlp.org/drop), [KorQUAD](https://korquad.github.io/) 을 기계번역을 통하여 데이터셋 구축
+
+| |exact match|f1 score|
+|------|---|---|
+|epoch 1|60.424|63.578|
+|epoch 2|78.092|80.300|
+|epoch 3|84.100|86.249| 
 
