@@ -12,68 +12,68 @@ from src.text_utils import *
 from src.contextual_embeddings import *
 from tqdm import tqdm
 
-# with open('data/ape_math_edit.json', encoding="utf-8") as f:
-#     data = json.load(f)
+with open('data/mwp_data/ape_math_edit.json', encoding="utf-8") as f:
+    data = json.load(f)
 
-# pairs, generate_nums, copy_nums = transfer_num(data)
+pairs, generate_nums, copy_nums = transfer_num(data)
 
-# import random
-# temp_pairs = []
-# f_cnt = 0
-# for p in tqdm(pairs):
-#     # pdb.set_trace()
-#     res = p[6]
-#     pos = [r[3] for r in res]
-#     arcs = [r[2] for r in res] # parse tree
-#     parse_tree = []
-#     cnt = 0
-#     parse_tree = [arc-1 if arc != -1 else arc for arc in arcs]
-#     # print(len(parse_tree),max(parse_tree))
-#     if len(p[1]) != len(parse_tree):
-#         f_cnt += 1
-#         continue
-#     temp_pairs.append((p[0], p[1], pos, parse_tree, 
-#                             p[2], p[3], p[4], p[5]))
+import random
+temp_pairs = []
+f_cnt = 0
+for p in tqdm(pairs):
+    # pdb.set_trace()
+    res = p[6]
+    pos = [r[3] for r in res]
+    arcs = [r[2] for r in res] # parse tree
+    parse_tree = []
+    cnt = 0
+    parse_tree = [arc-1 if arc != -1 else arc for arc in arcs]
+    # print(len(parse_tree),max(parse_tree))
+    if len(p[1]) != len(parse_tree):
+        f_cnt += 1
+        continue
+    temp_pairs.append((p[0], p[1], pos, parse_tree, 
+                            p[2], p[3], p[4], p[5]))
 
-# print(f"{f_cnt} pairs are ignored by disorder")
-# pairs = temp_pairs
+print(f"{f_cnt} pairs are ignored by disorder")
+pairs = temp_pairs
 
-# pairs = filter_data(pairs)
-# pairs = filter_with_input_length(pairs)
+pairs = filter_data(pairs)
+pairs = filter_with_input_length(pairs)
 
-# num_test_data = 3000
-# random.shuffle(pairs)
-# pairs_trained = pairs[num_test_data:]
-# pairs_tested = pairs[:num_test_data]
+num_test_data = 3000
+random.shuffle(pairs)
+pairs_trained = pairs[num_test_data:]
+pairs_tested = pairs[:num_test_data]
 
-# save_lang(pairs_trained,'pickles/pairs_trained.pickle')
-# save_lang(pairs_tested,'pickles/pairs_tested.pickle')
-# save_lang(generate_nums,'pickles/generate_nums.pickle')
-# save_lang(copy_nums,'pickles/copy_nums.pickle')
-# # pairs_trained = load_lang('pickles/pairs_trained.pickle')
-# # pairs_tested = load_lang('pickles/pairs_tested.pickle')
-# # generate_nums = load_lang('pickles/generate_nums.pickle')
-# # copy_nums = load_lang('pickles/copy_nums.pickle')
+save_lang(pairs_trained,'pickles/pairs_trained.pickle')
+save_lang(pairs_tested,'pickles/pairs_tested.pickle')
+save_lang(generate_nums,'pickles/generate_nums.pickle')
+save_lang(copy_nums,'pickles/copy_nums.pickle')
+# pairs_trained = load_lang('pickles/pairs_trained.pickle')
+# pairs_tested = load_lang('pickles/pairs_tested.pickle')
+# generate_nums = load_lang('pickles/generate_nums.pickle')
+# copy_nums = load_lang('pickles/copy_nums.pickle')
 
-# elogger = Logger("MultiMath_")
+elogger = Logger("MultiMath_")
 
-# input1_lang, input2_lang, output1_lang, output2_lang, train_pairs, test_pairs = prepare_data(pairs_trained, pairs_tested, 3, generate_nums, copy_nums)
+input1_lang, input2_lang, output1_lang, output2_lang, train_pairs, test_pairs = prepare_data(pairs_trained, pairs_tested, 3, generate_nums, copy_nums)
 
-# save_lang(input1_lang,'pickles/input1_lang.pickle')
-# save_lang(input2_lang,'pickles/input2_lang.pickle')
-# save_lang(output1_lang,'pickles/output1_lang.pickle')
-# save_lang(output2_lang,'pickles/output2_lang.pickle')
-# save_lang(train_pairs,'pickles/train_pairs.pickle')
-# save_lang(test_pairs,'pickles/test_pairs.pickle')
+save_lang(input1_lang,'pickles/input1_lang.pickle')
+save_lang(input2_lang,'pickles/input2_lang.pickle')
+save_lang(output1_lang,'pickles/output1_lang.pickle')
+save_lang(output2_lang,'pickles/output2_lang.pickle')
+save_lang(train_pairs,'pickles/train_pairs.pickle')
+save_lang(test_pairs,'pickles/test_pairs.pickle')
 
-input1_lang = load_lang('pickles/input1_lang.pickle')
-input2_lang = load_lang('pickles/input2_lang.pickle')
-output1_lang = load_lang('pickles/output1_lang.pickle')
-output2_lang = load_lang('pickles/output2_lang.pickle')
-train_pairs = load_lang('pickles/train_pairs.pickle')
-test_pairs = load_lang('pickles/test_pairs.pickle')
-generate_nums = load_lang('pickles/generate_nums.pickle')
-copy_nums = load_lang('pickles/copy_nums.pickle')
+# input1_lang = load_lang('pickles/input1_lang.pickle')
+# input2_lang = load_lang('pickles/input2_lang.pickle')
+# output1_lang = load_lang('pickles/output1_lang.pickle')
+# output2_lang = load_lang('pickles/output2_lang.pickle')
+# train_pairs = load_lang('pickles/train_pairs.pickle')
+# test_pairs = load_lang('pickles/test_pairs.pickle')
+# generate_nums = load_lang('pickles/generate_nums.pickle')
+# copy_nums = load_lang('pickles/copy_nums.pickle')
 
 batch_size = 64
 embedding_size = 1024
