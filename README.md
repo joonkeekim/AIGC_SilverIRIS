@@ -21,7 +21,7 @@
 
 
 ### Question Answering model
-- Question Answering으로 풀 수 있는 형식의 데이터셋 [DROP](https://allennlp.org/drop), [KorQUAD](https://korquad.github.io/) 을 기계번역을 통하여 데이터셋 구축
+- Question Answering으로 풀 수 있는 형식의 데이터셋 [DROP](https://allennlp.org/drop), [KorQUAD](https://korquad.github.io/)(KorQUAD v1) 을 기계번역을 통하여 데이터셋 구축
 
 | |exact match|f1 score|
 |------|---|---|
