@@ -1,7 +1,7 @@
 ## 인공지능 그랜드 챌린지 5차대회
 
 ## Silver IRIS
-
+ 
 - 인공지능을 활용하여 텍스트로 구성된 서술형 수학문제의 풀이과정과 해답을 제시하라
 - Algebraic 모델과 Question Answering 모델로 구성
 - binary classification을 통해 문제를 구분하여 각 모델로 전달
