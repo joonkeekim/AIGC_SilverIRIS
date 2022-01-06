@@ -34,4 +34,4 @@
 - mwp_train.py : Algebraic 모델 학습 파일
 - qa_train.py : Question Answering 모델 학습 파일
 - pretraining : mathmatical pretrain 학습 디렉토리
-- docker : 추론시 활용할 도커파일
+- docker : 추론시 활용할 도커파일 
